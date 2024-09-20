@@ -32,13 +32,17 @@
       let [values, setValues] = useState({ upper: '', lower: '', trimmed: '' })
       const handleChange = event => {
         // 2, 3, 4 - obtain also the value from the target of the event
-        let { name } = event.target
+        let { name, value } = event.target
         if (name === 'upper') {
+          setValues({ ...values, upper: value.toUpperCase() }) 
+          
           // 2- Set the value turned to upper case into state
         } else if (name === 'lower') {
+          setValues({ ...values, lower: value.toLowerCase() })
           // 3- Set the value turned to lower case into state
         } else if (name === 'trimmed') {
           // 4- Set the value trimmed of any leading or trailing whitespace into state
+          setValues({ ...values, trimmed: value.trim() })
         }
       }
       return (
@@ -55,6 +59,7 @@
           <div>
             {/* 1- make this input controlled */}
             <label>Lower <input
+              value={values.lower}
               name="lower"
               type="text"
               placeholder="Type text"
@@ -64,6 +69,7 @@
           <div>
             {/* 1- make this input controlled */}
             <label>Trimmed <input
+              value={values.trimmed}
               name="trimmed"
               type="text"
               placeholder="Type text"
