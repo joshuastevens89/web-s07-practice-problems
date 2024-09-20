@@ -6,18 +6,19 @@ import * as yup from 'yup'
 // PROBLEM 2 - After solving problem 1, validation error messages print to the console only. Fix the JSX so that the errors are also displayed on the page. Hint: the errors are being stored in component state as the user interacts with the form.
 
 const formSchema = yup.object().shape({
-  /* 1- This schema is all scrambled up! Reorder and uncomment the following lines:
+  /* 1- This schema is all scrambled up! Reorder and uncomment the following lines:*/
 
-  .boolean()
   username: yup
-  .required(),
-  .min(3, "Username must be at least 3 characters long")
   .string()
+  .min(3, "Username must be at least 3 characters long")
   .required(),
+ 
   fun: yup
+  .boolean()
   .oneOf([true], "You must have fun!")
+  .required()
 
-  */
+  
 })
 
 export default function App() {
@@ -55,6 +56,7 @@ export default function App() {
         />
         </label>
         {/* 2- display username validation error here */}
+        {errors.username}
       </div>
       <div>
         <label>Having fun <input
@@ -65,6 +67,7 @@ export default function App() {
         />
         </label>
         {/* 2- display fun validation error here */}
+        {errors.fun}
       </div>
       <input disabled={!canSubmit} type="submit" />
     </form>
