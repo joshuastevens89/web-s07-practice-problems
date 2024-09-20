@@ -28,18 +28,18 @@
         /*
          1- The following lines are out of order! Order them correctly and un-comment them. Test that the success and failure messages from the server render on the page.
         */
+       event.preventDefault()
+       console.log(values)
+       axios.post('https://webapis.bloomtechdev.com/cranky_login', values)
+       .then(res => {
+      setSuccess(res.data.message)
+      setFailure('')
+      })
+      .catch(err => {
+      setFailure(err.response.data.message)
+      setSuccess('')
+      })
 
-        // setSuccess(res.data.message)
-        // event.preventDefault()
-        // .then(res => {
-        // axios.post('https://webapis.bloomtechdev.com/cranky_login', values)
-        // setFailure(err.response.data.message)
-        // })
-        // console.log(values)
-        // setFailure('')
-        // .catch(err => {
-        // })
-        // setSuccess('')
 
       }
       const onChange = event => {
