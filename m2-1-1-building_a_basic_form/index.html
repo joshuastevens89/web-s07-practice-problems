@@ -31,18 +31,28 @@
       return (
         <form>
           <div>
-            <label>Username </label><br />
+            <label htmlFor="usernameInput">Username </label><br />
             <input
-              id="username"
+              id="usernameInput"
+              name="username"
               type="text"
+              placeholder="Type Your Username Here"
+              maxLength={20}
+              minLength={8}
+              required
             />
           </div>
 
           <div>
-            <label>Password </label><br />
+            <label htmlFor='passwordInput'>Password </label><br />
             <input
-              id="password"
-              type="text"
+              id="passwordInput"
+              name='password'
+              type="password"
+              placeholder="Enter Your Password"
+              maxLength={20}
+              minLength={8}
+              required
             />
           </div>
 
