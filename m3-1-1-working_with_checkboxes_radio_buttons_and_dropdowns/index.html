@@ -16,6 +16,7 @@
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React
+    
     // PROBLEM 1 - The dropdown is missing some props: `name`, `onChange` and `value`. Fix it!
 
     // PROBLEM 2 - The radio buttons are missing some props: `name`, `onChange` and `checked`. Fix them!
@@ -45,7 +46,7 @@
         <form onSubmit={onSubmit}>
           <div>
             {/* 1- the select is missing some props */}
-            <label>Food <select>
+            <label>Food <select name='food' onChange={onChange} value={values.food}>
               <option value="">--Select Food--</option>
               <option value="pizza">Pizza</option>
               <option value="broccoli">Broccoli</option>
@@ -55,20 +56,29 @@
           <div>
             {/* 2- the radio inputs are missing some props */}
             <label>ReactJS <input
+              checked={values.lib === 'react'}
+              name='lib'
               value="react"
               type="radio"
+              onChange={onChange}
             />
             </label>
             <label>SvelteJS <input
+              checked={values.lib === 'svelte'}
+              name='lib'
               value="svelte"
               type="radio"
+              onChange={onChange}
             />
             </label>
           </div>
           <div>
             {/* 3- the checkbox input is missing some props */}
             <label>Having fun <input
+              checked={values.fun}
+              name='fun'
               type="checkbox"
+              onChange={onChange}
             /></label>
           </div>
           <input type="submit" />
